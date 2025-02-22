@@ -1,0 +1,138 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+ setlocale(LC_ALL, "ru");
+ int user = 0;
+ cout << "Ввидите число: " << endl;
+ cin >> user;
+ for (int x = 0; x <= user; x++) {
+  cout << x << " ";
+ }
+}
+
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int n;
+
+    cout << "Введите количество дней: ";
+    cin >> n;
+
+    // Проверка на корректность ввода
+    if (n <= 0) {
+        cout << "Количество дней должно быть положительным числом." << endl;
+        return 1; // Возвращаем код ошибки
+    }
+
+    float total_dis = 0;
+    float daily_dis = 15;
+
+    // Считаем общее расстояние
+    for (int i = 0; i < n; ++i) {
+        total_dis += daily_dis;
+        daily_dis += 2;
+    }
+
+    cout << "Улитка проползет " << total_dis << " см за " << n << " дней." << endl;
+
+    return 0;
+}
+
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int orel = 0; // Счетчик орлов
+    int reshka = 0; // Счетчик решек
+
+    for (int i = 0; i < 9; ++i) {
+        int input;
+        cout << "Введите результат подбрасывания монетки (1 - орел, 0 - решка): ";
+        cin >> input;
+
+        if (input == 1) {
+            orel++;
+        }
+        else {
+            reshka++;
+        }
+    }
+
+    cout << "Количество орлов: " << orel << endl;
+    cout << "Количество решек: " << reshka << endl;
+
+    if (orel % 2 == 0) {
+        cout << "Решение: положительное" << endl;
+    }
+    else {
+        cout << "Решение: отрицательное" << endl;
+    }
+
+    return 0;
+}
+
+
+#include <iostream>
+
+using namespace std;
+
+int daysInMonth(int month, int year) {
+    if (month == 2) {
+        return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) ? 29 : 28;
+    }
+    else if (month == 4  month == 6  month == 9 || month == 11) {
+        return 30;
+    }
+    else {
+        return 31;
+    }
+}
+
+int main() {
+    int year, month, startDay;
+    setlocale(LC_ALL, "ru");
+    cout << "Введите год: ";
+    cin >> year;
+    cout << "Введите месяц (1-12): ";
+    cin >> month;
+    cout << "Введите номер дня недели для начала месяца (0-6, 0 - воскресенье): ";
+    cin >> startDay;
+
+
+    if (month < 1  month > 12  startDay < 0 || startDay > 6) {
+        cout << "Некорректный ввод." << endl;
+        return 1;
+    }
+
+    int days = daysInMonth(month, year);
+
+    // Вывод заголовка
+    cout << "       " << year << " год, " << month << " месяц" << endl;
+    cout << "-----------------------------" << endl;
+    cout << "Вс Пн Вт Ср Чт Пт Сб" << endl;
+
+    // Первый цикл: вывод пустых клеток
+    for (int i = 0; i < startDay; ++i) {
+        cout << "   ";
+    }
+
+    // Второй цикл: вывод дней месяца
+    for (int day = 1; day <= days; ++day) {
+        printf("%2d ", day);
+        if ((startDay + day) % 7 == 0) {
+            cout << endl;
+        }
+    }
+    cout << endl;
+
+    return 0;
+}
