@@ -1,0 +1,24 @@
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+class Smartphone:
+    def __init__(self, brand, model, os):
+        self.brand = brand
+        self.model = model
+        self.os = os
+class EnergyDrink:
+    def __init__(self, name, volume, caffeine):
+        self.name = name
+        self.volume = volume
+        self.caffeine = caffeine
+
+my_phone = Smartphone("Samsung", "Galaxy S23", "Android")
+print(f"My phone is a {my_phone.brand} {my_phone.model} running {my_phone.os}")
+
+my_car = Car("Toyota", "Camry", 2023)
+print(f"My car is a {my_car.year} {my_car.make} {my_car.model}")
+
+my_drink = EnergyDrink("Red Bull", 250, 80)
+print(f"I'm drinking {my_drink.name} with {my_drink.caffeine}mg of caffeine in {my_drink.volume}ml")
