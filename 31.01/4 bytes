@@ -1,0 +1,21 @@
+﻿#include <iostream>
+
+using namespace std;
+
+union IntUnion {
+    int signedInt;
+    unsigned int unsignedInt;
+};
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    IntUnion data;
+
+    cout << "Введите 4-х байтовое целое число: ";
+    cin >> data.signedInt;
+
+    cout << "Знаковое целое: " << data.signedInt << endl;
+    cout << "Беззнаковое целое: " << data.unsignedInt << endl;
+
+    return 0;
+}
