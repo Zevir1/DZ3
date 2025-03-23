@@ -1,0 +1,37 @@
+#include <iostream>
+#include <locale>
+#include <cmath> // Для математических функций (например, sqrt, pow, sin и т.д.)
+
+using namespace std;
+
+
+double f(double x, double y) {
+    return x*x+y;
+}
+
+int main() {
+  setlocale(LC_ALL, "ru_RU.UTF-8");
+
+  double x, y, h, b;
+
+  // Ввод данных
+  cout << "Введите начальное значение x: ";
+  cin >> x;
+  cout << "Введите начальное значение y: ";
+  cin >> y;
+  cout << "Введите шаг h: ";
+  cin >> h;
+  cout << "Введите конечное значение b: ";
+  cin >> b;
+
+
+  while (x <= b) {
+    y = y + h * f(x, y);  
+    x = x + h;
+    cout << "y = " << y << endl; 
+  }
+
+  cout << "Расчеты завершены." << endl;
+
+  return 0;
+}
